@@ -5,5 +5,61 @@
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="main">
+        <p id="city"></p>
+        <p id="weather"></p>
+        <img id="weather-icon">
+        <p id="date"></p>
+        <p id="temp"></p>
+        <p>(Could add a high/low here)</p>
+      </div>
+      <div class="side">
+        <div class="side-grid">
+          <div>
+            <img src="./assets/feelslike.png" alt="Device Thermostat">
+          </div>
+          <div>
+            <p>Feels like</p>
+            <p id="feels"></p>
+          </div>
+        </div>
+        
+        <div class="side-grid">
+          <div>
+            <img src="./assets/humidity.png" alt="Humidity High Icon">
+          </div>
+          <div>
+            <p>Humidity</p>
+            <p id="humidity"></p>
+          </div>
+        </div>
+        
+        <div class="side-grid">
+          <div>
+            <img src="./assets/rain.png" alt="Rain Cloud Icon">
+          </div>
+          <div>
+            <p>Chance of rain</p>
+            <p id="rain-chance"></p>
+          </div>
+        </div>
+
+        <div class="side-grid">
+          <div>
+            <img src="./assets/wind.png" alt="Wind Speed Icon">
+          </div>
+          <div>
+            <p>Wind Speed</p>
+            <p id="wind-speed"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div>
+      <h1>Maybe history</h1>
+    </div>
+  </body>
 </html>

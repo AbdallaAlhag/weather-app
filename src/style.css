@@ -1,0 +1,34 @@
+:root {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+    font-size: 20px;
+}
+
+.side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.side-grid{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.side-grid > div:nth-of-type(2) > p:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 24px;
+}
+.side-grid img{
+    height: 80px;
+    width: 80px;
+}
