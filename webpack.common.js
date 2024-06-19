@@ -5,11 +5,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/index.js',
+    card: './src/card.js',
   },
   plugins: [
+    // new HtmlWebpackPlugin({
+    //   template: './src/index.html',
+    //   favicon: `./src/assets/favicon.png`,
+    // }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.html', // Use a single HTML template
+      filename: 'index.html', // Output filename (can be index.html or any other name)
       favicon: `./src/assets/favicon.png`,
+      chunks: ['app', 'card'], // Include both index and card chunks
     }),
     new CleanWebpackPlugin(),
   ],

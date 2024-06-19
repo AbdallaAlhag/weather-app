@@ -4,10 +4,11 @@
   margin: 0;
 }
 
-.container{
+.weather-container{
     display: flex;
     justify-content: space-between;
-    margin: 5%;
+    /* margin:Top, Right, Bottom, Left */
+    margin: 2.5% 5% 0% 5%; 
     font-size: 20px;
 }
 

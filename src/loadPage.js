@@ -48,8 +48,6 @@ function createMainInfo(city) {
 
 function createSideInfo(city){
 
-    const container = document.querySelector('.container');
-
     const feelsLike = document.querySelector('#feels');
     const humidity = document.querySelector('#humidity');
     const chanceOfRain = document.querySelector('#rain-chance');
@@ -64,10 +62,14 @@ function createSideInfo(city){
         } else {
             feelsLike.textContent = 'Error fetching weather';
             humidity.textContent = '';
+            chanceOfRain.textContent = '';
+            windSpeed.textContent = '';
         }
     
     }).catch(err => {
         feelsLike.textContent = 'Error fetching weather';
         humidity.textContent = '';
+        chanceOfRain.textContent = '';
+        windSpeed.textContent = '';
     });
 }
