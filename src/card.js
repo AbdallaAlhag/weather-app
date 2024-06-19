@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     pointBorderWidth: 3,
                     pointHoverBorderColor: 'rgba(255, 255, 255, 0.2)',
                     pointHoverBorderWidth: 10,
+                    pointHoverRadius: 50,
+                    hitRadius: 100,
+                    radius: 10,
+                    hoverRadius: 10,
                     tension: 0,
                 }
             ]
@@ -64,13 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 tooltip: {
                     backgroundColor: 'transparent',
+                    // backgroundColor: 'rgba(0, 0, 0, 1)',
+
                     displayColors: false,
                     bodyFont: {
-                        size: 14,
+                        size: 22,
                     },
                     callbacks: {
                         label: function (tooltipItem) {
                             return tooltipItem.formattedValue + '°F';
+                            // return tooltipItem.raw + '°F';
                         }
                     }
                 },

@@ -20,15 +20,15 @@ body {
     /* top: 50%; */
     /* left: 50%; */
     /* transform: translate(-50%, -50%); */
-    width: 1000px;
-    height: 475px;
+    width: 1250px;
+    height: 375px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
 
     flex-direction: column; /* Use flex to arrange children vertically */
     align-items: center; /* Center content horizontally */
-    justify-content: space-between; /* Evenly space out content vertically */
+    justify-content: center; /* Evenly space out content vertically */
 
   }
   
@@ -39,8 +39,9 @@ body {
     margin-right: -30px;    
     width: 112% !important; */
     width: 100% !important; /* Ensure the canvas fills the width */
-    height: 75% !important; /* Ensure the canvas fills the height */
-    margin-bottom: 35%;
+    height: 50% !important; /* Ensure the canvas fills the height */
+    padding: 10px;
+    margin-bottom: 8%;
   }
   
   .card .about {

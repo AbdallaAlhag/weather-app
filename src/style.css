@@ -12,6 +12,10 @@
     font-size: 20px;
 }
 
+#low-high{
+    display: flex;
+    
+}
 .side{
     display: flex;
     flex-direction: column;

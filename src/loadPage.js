@@ -2,7 +2,7 @@ import { displayRealTimeWeather, displayForecastWeather } from './apiModule';
 
 
 export function loadPage(city) {
-    createMainInfo(city);    
+    createMainInfo(city);
     createSideInfo(city);
 }
 
@@ -10,7 +10,7 @@ export function loadPage(city) {
 function createMainInfo(city) {
 
     // lets create a simple weather fetch call
-    
+
     const cityName = document.querySelector('#city');
     const currentWeather = document.querySelector('#weather');
     const date = document.querySelector('#date');
@@ -25,33 +25,39 @@ function createMainInfo(city) {
             date.textContent = weather.location.localtime;
             temperature.textContent = weather.current.temp_f + '°F';
             weatherIcon.src = weather.current.condition.icon;
-            weatherIcon.alt = weather.current.condition.text; 
+            weatherIcon.alt = weather.current.condition.text;
+
         } else {
             cityName.textContent = 'error fetching weather';
             currentWeather.textContent = '';
             date.textContent = '';
             temperature.textContent = '';
             weatherIcon.src = '';
-            weatherIcon.alt = ''; 
+            weatherIcon.alt = '';
         }
-    
+
     }).catch(err => {
         cityName.textContent = 'Error fetching weather';
         currentWeather.textContent = '';
         date.textContent = '';
         temperature.textContent = '';
         weatherIcon.src = '';
-        weatherIcon.alt = ''; 
+        weatherIcon.alt = '';
     });
 }
 
 
-function createSideInfo(city){
+function createSideInfo(city) {
 
     const feelsLike = document.querySelector('#feels');
     const humidity = document.querySelector('#humidity');
     const chanceOfRain = document.querySelector('#rain-chance');
     const windSpeed = document.querySelector('#wind-speed');
+
+    // Not really side info, might reformat and change name
+    const low = document.querySelector('#low');
+    const high = document.querySelector('#high');
+
 
     displayForecastWeather(city).then(weather => {
         if (weather) {
@@ -59,13 +65,15 @@ function createSideInfo(city){
             humidity.textContent = weather.current.humidity + '%';
             chanceOfRain.textContent = weather.forecast.forecastday[0].day.daily_chance_of_rain + " %";
             windSpeed.textContent = weather.forecast.forecastday[0].day.maxwind_mph + " mph";
+            low.innerHTML = `<i class='bx bx-down-arrow-alt' ></i>  ${weather.forecast.forecastday[0].day.mintemp_f}`;
+            high.innerHTML = `<i class='bx bx-up-arrow-alt' ></i>  ${weather.forecast.forecastday[0].day.maxtemp_f}`;
         } else {
             feelsLike.textContent = 'Error fetching weather';
             humidity.textContent = '';
             chanceOfRain.textContent = '';
             windSpeed.textContent = '';
         }
-    
+
     }).catch(err => {
         feelsLike.textContent = 'Error fetching weather';
         humidity.textContent = '';
