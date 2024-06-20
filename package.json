@@ -33,6 +33,7 @@
   "dependencies": {
     "boxicons": "^2.1.4",
     "chart.js": "^4.4.3",
+    "date-fns": "^3.6.0",
     "lodash": "^4.17.21"
   }
 }

@@ -1,5 +1,6 @@
 import './card.css';
 import Chart from 'chart.js/auto';
+import { fetchWeeklyWeather } from "./apiModule";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28,16 +29,19 @@ document.addEventListener('DOMContentLoaded', function () {
     gradientPrevWeek.addColorStop(0, '#FF55B8');
     gradientPrevWeek.addColorStop(1, '#FF8787');
 
+
+
+
     var config = {
         type: 'line',
         data: {
-            labels: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+            labels: ["", "", "", "", "", "", ""],
             datasets: [
                 {
                     label: 'Temperature',
-                    data: [100, 14, 22, 12, 0, 12, 18 ],
+                    data: [80, 85, 75, 80, 65, 85, 70],
                     fill: false,
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderColor: 'rgba(255, 255, 255, 0.6)',
                     borderWidth: 2,
                     pointBackgroundColor: 'transparent',
                     pointBorderColor: '#FFFFFF',
@@ -45,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     pointHoverBorderColor: 'rgba(255, 255, 255, 0.2)',
                     pointHoverBorderWidth: 10,
                     pointHoverRadius: 50,
-                    hitRadius: 100,
+                    hitRadius: 80,
                     radius: 10,
                     hoverRadius: 10,
                     tension: 0,
@@ -68,11 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 tooltip: {
                     backgroundColor: 'transparent',
-                    // backgroundColor: 'rgba(0, 0, 0, 1)',
-
                     displayColors: false,
                     bodyFont: {
-                        size: 22,
+                        size: 32,
+                        weight: 'bolder',
                     },
                     callbacks: {
                         label: function (tooltipItem) {
@@ -99,4 +102,27 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     window.chart = new Chart(canvas, config);
+
+
 });
+
+export function displayChart(city) {
+    fetchWeeklyWeather(city).then((weatherData) => {
+        let tempArr = []
+        if (weatherData.forecast && weatherData.forecast.forecastday) {
+
+            weatherData.forecast.forecastday.forEach(dayData => {
+                tempArr.push(dayData.day.avgtemp_f);
+            });
+        }
+        window.chart.data.datasets[0].data = tempArr;
+        window.chart.update();
+    }).catch((err) => {
+        console.log(err)
+        let tempArr = [80, 85, 75, 80, 65, 85, 70]; // Default data
+        // Update chart data
+        window.chart.data.datasets[0].data = tempArr;
+        window.chart.update();
+
+    });
+}

@@ -7,3 +7,12 @@ import rainIcon from './assets/rain.png';
 import windIcon from './assets/wind.png';
 
 loadPage('antioch');
+
+const submit = document.querySelector('.image-button');
+
+submit.addEventListener('click', function(event) {
+    event.preventDefault()
+    const search = document.querySelector("#search-input").value;
+    loadPage(search);
+})
+

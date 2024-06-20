@@ -1,15 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+body {
+    font-family: 'Merriweather', serif;
+    background-image: url('assets/background.jpg');
+    /* <a href="https://www.freepik.com/free-ai-image/painting-mountain-lake-with-mountain-background_40965130.htm#query=background&position=0&from_view=keyword&track=sph&uuid=328f68d0-4ea6-4a69-afa8-520f7862b65d">Image by vecstock on Freepik</a> */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    color: white;
+}
+
 .weather-container{
     display: flex;
     justify-content: space-between;
     /* margin:Top, Right, Bottom, Left */
-    margin: 2.5% 5% 0% 5%; 
+    margin: 1.5% 5% 0% 5%; 
     font-size: 20px;
+}
+
+.main{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
 }
 
 #low-high{
@@ -36,4 +54,48 @@
 .side-grid img{
     height: 80px;
     width: 80px;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+}
+
+#search-input{
+    background: transparent !important;
+    padding: 5px; 
+    margin: 8px 0; 
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 16px; /* Font size */
+    font-family: Arial, sans-serif; /* Font family */
+    background-color: #f9f9f9; /* Light gray background */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border and box-shadow */
+    color: white;
+}
+#search-input:focus {
+    /* border-color:rgba(112, 147, 156, 0.35); Blue border on focus */
+    box-shadow: 0 0 40px rgba(112, 147, 156, 0.35); /* Blue shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* #search-input:hover {
+    border-color: #888; 
+} */
+
+#search-input::placeholder {
+    color: #aaa; /* Light gray placeholder text */
+    font-style: italic; /* Italic placeholder text */
+}
+
+.image-button {
+    border: none; 
+    background: none; 
+    padding: 0; /* Adjust padding as needed */
+    cursor: pointer; /* Ensures cursor changes to pointer on hover */
+}
+
+.image-button i {
+    color: white;
 }
