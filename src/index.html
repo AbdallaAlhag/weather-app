@@ -18,12 +18,17 @@
             <p id="high"></p>
           </div>
           <p id="date"></p>
-          <form class="search-bar" >
-            <label for="search" ></label>
-            <input type="text" id="search-input" name="search" required placeholder="City Name:">
-            <button class="image-button">
-              <i class='bx bx-search bx-sm bx-tada-hover' ></i>
-            </button>
+          <form class="search-bar" id="search-bar">
+            <div id="search-bar-input">
+              <label for="search" ></label>
+              <input type="text" id="search-input" name="search" required autocomplete="off" placeholder="Enter City, State or Country">
+              <button class="image-button">
+                <i class='bx bx-search bx-sm bx-tada-hover' ></i>
+              </button>
+            </div>
+            <div id="search-bar-feedback">
+              <p id="feedback"></p>
+            </div>
           </form>
           
         </div>
@@ -33,7 +38,7 @@
               <img src="./assets/feelslike.png" alt="Device Thermostat" />
             </div>
             <div>
-              <p>Feels like</p>
+              <p id="feels-like">Feels like</p>
               <p id="feels"></p>
             </div>
           </div>

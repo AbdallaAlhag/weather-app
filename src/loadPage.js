@@ -11,8 +11,6 @@ export function loadPage(city) {
     createSideInfo(city);
     createHistory(city);
     displayChart(city);
-
-
 }
 
 // includes city, weather, temp, high, low
@@ -41,7 +39,7 @@ function createMainInfo(city) {
                 weatherIcon.src = weather.current.condition.icon;
                 weatherIcon.alt = weather.current.condition.text;
             } else {
-                cityName.textContent = "Error Fetching Weather";
+                // cityName.textContent = "Error Fetching Weather";
                 // currentWeather.textContent = "";
                 // date.textContent = "";
                 // temperature.textContent = "";
