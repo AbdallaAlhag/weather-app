@@ -1,10 +1,11 @@
 const key = '44a89006814d400793e172154241406';
+
 // lets create a simple weather fetch call
 
 export async function getRealTimeWeather(city) {
 
   try {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}`, { mode: 'cors' })
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}`, { mode: 'cors' })
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -28,7 +29,7 @@ export async function displayRealTimeWeather(city) {
 export async function getForecastWeather(city) {
 
   try {
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}`, { mode: 'cors' })
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}`, { mode: 'cors' })
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -55,7 +56,7 @@ export async function displayForecastWeather(city) {
 export async function fetchWeeklyWeather(city) {
   const today = new Date();
   try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&dt=${today}&days=7`, { mode: 'cors' })
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&dt=${today}&days=7`, { mode: 'cors' })
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
