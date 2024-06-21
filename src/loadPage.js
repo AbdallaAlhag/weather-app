@@ -28,7 +28,10 @@ function createMainInfo(city) {
         .then((weather) => {
             if (weather) {
                 currentWeather.textContent = weather.current.condition.text;
-                cityName.textContent = weather.location.name + ", " + weather.location.region;
+                console.log(weather.location)
+                // cityName.innerHTML = weather.location.name + ", " + weather.location.region;
+                
+                cityName.innerHTML = `${weather.location.name}, ${weather.location.region}<br>${weather.location.country}`;
 
                 const dateTimeString = weather.location.localtime;
                 const dateString = parse(dateTimeString, 'yyyy-MM-dd HH:mm', new Date());
@@ -101,8 +104,9 @@ function createHistory(city) {
     
             if (weatherData && weatherData.forecast && weatherData.forecast.forecastday) {
                 const ticks = document.querySelectorAll(".tick"); // Select all tick elements
-    
+
                 weatherData.forecast.forecastday.forEach((dayData, index) => {
+
                     const current = ticks[index]
                     const temperature = current.querySelector(".value--this");
                     const dayOfTheWeek = current.querySelector('.day-name');

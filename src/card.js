@@ -2,7 +2,17 @@ import './card.css';
 import Chart from 'chart.js/auto';
 import { fetchWeeklyWeather } from "./apiModule";
 
-document.addEventListener('DOMContentLoaded', function () {
+
+// Check for existing event listeners before adding
+if (!document.__DOMContentLoadedHandler) {
+    document.__DOMContentLoadedHandler = true; // Flag to prevent re-adding
+    document.addEventListener('DOMContentLoaded', function() {
+        // Your initialization code here
+        initializeChart();
+    });
+}
+
+function initializeChart() {
 
     // window.chart = new Chart(canvas, config);
     var canvas = document.getElementById("canvas");
@@ -39,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [
                 {
                     label: 'Temperature',
-                    data: [80, 85, 75, 80, 65, 85, 70],
+                    data: [77, 77, 77, 77, 77, 77, 77],
                     fill: false,
                     borderColor: 'rgba(255, 255, 255, 0.6)',
                     borderWidth: 2,
@@ -103,25 +113,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.chart = new Chart(canvas, config);
 
+}
 
-});
-
-export function displayChart(city) {
-    fetchWeeklyWeather(city).then((weatherData) => {
-        let tempArr = []
+export async function displayChart(city) {
+    try {
+        const weatherData = await fetchWeeklyWeather(city);
+        let tempArr = [];
+        
         if (weatherData.forecast && weatherData.forecast.forecastday) {
-
             weatherData.forecast.forecastday.forEach(dayData => {
                 tempArr.push(Math.ceil(dayData.day.avgtemp_f));
             });
         }
-        window.chart.data.datasets[0].data = tempArr;
-        window.chart.update();
-    }).catch((err) => {
-        console.log(err)
-        let tempArr = [77, 77, 77, 77, 77, 77, 77]; // Default data
+        
         // Update chart data
         window.chart.data.datasets[0].data = tempArr;
         window.chart.update();
-    });
+        
+    } catch (err) {
+        console.error(err);
+        let tempArr = [77, 77, 77, 77, 77, 77, 77]; // Default data
+        
+        // Update chart data with default values
+        window.chart.data.datasets[0].data = tempArr;
+        window.chart.update();
+    }
 }
