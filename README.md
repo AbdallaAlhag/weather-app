@@ -7,7 +7,7 @@ Uses Ip Geolocation to get user's location as the default city.
 
 ## Screenshots
 
-![App Screenshot](https://snipboard.io/zVD8FZ.jpg)
+![App Screenshot](https://snipboard.io/ZxgFpc.jpg)
 
 
 ## Appendix
