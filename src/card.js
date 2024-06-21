@@ -112,17 +112,16 @@ export function displayChart(city) {
         if (weatherData.forecast && weatherData.forecast.forecastday) {
 
             weatherData.forecast.forecastday.forEach(dayData => {
-                tempArr.push(dayData.day.avgtemp_f);
+                tempArr.push(Math.ceil(dayData.day.avgtemp_f));
             });
         }
         window.chart.data.datasets[0].data = tempArr;
         window.chart.update();
     }).catch((err) => {
         console.log(err)
-        let tempArr = [80, 85, 75, 80, 65, 85, 70]; // Default data
+        let tempArr = [77, 77, 77, 77, 77, 77, 77]; // Default data
         // Update chart data
         window.chart.data.datasets[0].data = tempArr;
         window.chart.update();
-
     });
 }

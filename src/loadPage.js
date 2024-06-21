@@ -110,7 +110,7 @@ function createHistory(city) {
                     const highLow = current.querySelector('.high-low');
                     const tempIcon = current.querySelector('.icon');
     
-                    temperature.textContent = dayData.day.avgtemp_f + "°F";
+                    temperature.textContent = Math.ceil(dayData.day.avgtemp_f) + "°F";
                     dayOfTheWeek.textContent = format(dayData.date, 'EEEE');
                     dayOfTheMonth.textContent = format(dayData.date, 'dd MMM');
                     highLow.textContent = "L: "+ Math.ceil(dayData.day.mintemp_f) +" / H: " +  Math.ceil(dayData.day.maxtemp_f);
